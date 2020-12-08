@@ -1,32 +1,33 @@
-import React, { Component } from 'react';
-import Botton from '../../components/Botton/index';
-import {useState} from 'react';
-import './style.css';
+import React, {useState} from 'react';
+import { Container, Row, Card, Form, Button } from 'react-bootstrap';
 
 const Login = () => {
   return (
-    <div className = "home">
-      <article>
-        <h1>Escolha o gênero de filme:</h1>
+    <Container>
 
-        <div className = "categoryBottons">     
+      <Card bg="dark" text="white">
+        <Card.Header border="warning" as="h4">Login</Card.Header>
+        <Card.Body>
+          <Form>
 
-          {/*========================Botões a esquerda======================*/}
-          <div className = "bottons">
-            <Botton name = "Ação" className = "categoryBotton" link = "/moviesList"/>
-            <Botton name = "Ficção" className = "categoryBotton" link = "/moviesList"/>
-          </div>
+            <Form.Group controlId="formBasicEmail">
+              <Form.Label>Email</Form.Label>
+              <Form.Control type="email" placeholder="Insira seu email" />
+            </Form.Group>
 
-          {/*========================Botões a direita======================*/}
-          <div className = "bottons">
-            <Botton name = "Suspense" className = "categoryBotton" link = "/moviesList"/>
-            <Botton name = "Aventura" className = "categoryBotton" link = "/moviesList"/>
-          </div>
+            <Form.Group controlId="formBasicPassword">
+              <Form.Label>Senha</Form.Label>
+              <Form.Control type="password" placeholder="Senha" />
+            </Form.Group>
 
+            <Button variant="warning" type="submit">
+              Entrar
+            </Button>
 
-        </div>
-      </article>
-    </div>
+          </Form>
+        </Card.Body>
+      </Card>
+    </Container>
   );
 }
 
