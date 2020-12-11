@@ -6,8 +6,6 @@ import Login from "./views/Login/index";
 import Error from "./views/Error/index";
 import EditUserForm from "./views/EditUserForm/index";
 import CreateUserForm from "./views/CreateUserForm/index";
-<<<<<<< HEAD
-=======
 import firebase from './firebaseConnection';
 
 const PrivateRoute = ({ component: Component, ...rest }) => {
@@ -22,7 +20,6 @@ const PrivateRoute = ({ component: Component, ...rest }) => {
         )} />
     });
 };
->>>>>>> feature/validando-campos-formulario-edicao
 
 const Routes = () => {
     return(
