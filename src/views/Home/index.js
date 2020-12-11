@@ -1,8 +1,10 @@
 import React, {useState} from 'react';
-import {Container, Navbar, Nav, Image} from 'react-bootstrap';
+import {Container} from 'react-bootstrap';
 import firebase from '../../firebaseConnection';
 
 const Home = () => {
+  const [selector, setSelector] = useState('');
+
   //Observador
   firebase.auth().onAuthStateChanged((user) => {
     if(user) 
@@ -11,7 +13,6 @@ const Home = () => {
       setSelector(false)
   });
 
-  const [selector, setSelector] = useState('');
   return (    
     <>
       {selector ?

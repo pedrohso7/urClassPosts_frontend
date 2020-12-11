@@ -4,7 +4,7 @@ import firebase from '../../firebaseConnection';
 import img from '../../assets/logosistema.png'
 
 const Header = () => {
-  const [selector, setSelector] = useState('');
+  const [selector, setSelector] = useState(false);
   const getUser = firebase.auth().currentUser;
   const [dropdownTitle ,setDropdownTitle] = useState('');
   
@@ -45,7 +45,7 @@ const Header = () => {
               <NavDropdown 
                   className="bg-warning text-dark"
                   onClick={handleDropdownTitle()}
-                  title={`${dropdownTitle}`}
+                  title={dropdownTitle}
                   id="collasible-nav-dropdown"
               >
                 <NavDropdown.Item className="bg-warning text-dark" onClick={() => firebase.auth().signOut()} href="/login">Sair do sistema</NavDropdown.Item>
@@ -71,8 +71,7 @@ const Header = () => {
               <Nav.Link href="/user/create">Cadastrar</Nav.Link>
             </Nav>
             </Container>
-        </Navbar>)
-        }
+        </Navbar>)}
     </>
   );
 }

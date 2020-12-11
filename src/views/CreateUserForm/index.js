@@ -1,7 +1,7 @@
 
 import React, {useState, useEffect} from 'react';
 import { Redirect} from "react-router-dom";
-import { Container, Row, Card, Form, Button, Image, Spinner, Alert} from 'react-bootstrap';
+import { Container, Row, Card, Form, Button,  Spinner, Alert} from 'react-bootstrap';
 import validate from 'validate.js';
 import firebase from '../../firebaseConnection';
 
@@ -246,7 +246,7 @@ const CreateUserForm = () => {
               {/* Botao Submit e feedback para o usuário utilizando o controleador "feedback.open"*/}
               {feedback.open ? (
                 <Alert variant={feedback.type} onClose={() => handleRedirect()} dismissible>
-                  <Alert.Heading>{(feedback.type == 'success') ? ('Sucesso!') : ('Erro!')}</Alert.Heading>
+                  <Alert.Heading>{(feedback.type === 'success') ? ('Sucesso!') : ('Erro!')}</Alert.Heading>
                   <p>{feedback.message}</p>
 
                 </Alert>

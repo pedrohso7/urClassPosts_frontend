@@ -1,6 +1,6 @@
 import React, {useState, useEffect} from 'react';
 import { Link , Redirect} from "react-router-dom";
-import { Container, Row, Card, Form, Button, Image, Spinner, Alert} from 'react-bootstrap';
+import { Container, Row, Card, Form, Button,  Spinner, Alert} from 'react-bootstrap';
 import validate from 'validate.js';
 import firebase from '../../firebaseConnection';
 
@@ -54,11 +54,11 @@ const Login = () => {
 
   //Observador
   firebase.auth().onAuthStateChanged((user) => {
-    setRedirect(true); 
-  });
-
-  //if (redirect) return (<Redirect to="/" />);
-  
+    if(user) 
+      setRedirect(true)
+    else 
+      setRedirect(false)
+  }); 
 
   useEffect(() => {
     //Verificando campos do formulário a cada atualização do formulário
@@ -136,6 +136,10 @@ const Login = () => {
     e.preventDefault();
   };
 
+  console.log()
+  //if (redirect) return <Redirect to="/" />
+
+
   return (    
     <Container style={{padding:10}}>
       {
@@ -183,9 +187,9 @@ const Login = () => {
               {/* Botao Submit e feedback para o usuário utilizando o controleador "feedback.open"*/}
               {feedback.open ? (
                 <Alert variant={feedback.type} onClose={() => setFeedback({...feedback, open: false})              } dismissible>
-                  <Alert.Heading>{(feedback.type == 'success') ? ('Sucesso!') : ('Erro!')}</Alert.Heading>
+                  <Alert.Heading>{(feedback.type === 'success') ? ('Sucesso!') : ('Erro!')}</Alert.Heading>
                   <p>{feedback.message}</p>
-                  {(feedback.type == 'warning') ? <Link to={'/user/create'}>Deseja criar uma conta?</Link> : null}
+                  {(feedback.type === 'warning') ? <Link to={'/user/create'}>Deseja criar uma conta?</Link> : null}
                 </Alert>
               ) :
               <Button type="submit" variant = "warning" onClick={(e) => handleSubmit(e)}>Entrar</Button>

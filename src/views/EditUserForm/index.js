@@ -235,7 +235,7 @@ const EditUserForm = () => {
               {/* Botao Submit e feedback para o usuário utilizando o controlador "feedback.open"*/}
               {feedback.open ? (
                 <Alert variant={feedback.type} onClose={() => setFeedback({...feedback, open: false})} dismissible>
-                  <Alert.Heading>{(feedback.type == 'success') ? ('Sucesso!') : ('Erro!')}</Alert.Heading>
+                  <Alert.Heading>{(feedback.type === 'success') ? ('Sucesso!') : ('Erro!')}</Alert.Heading>
                   <p>{feedback.message}</p>
                   <Link to={'/'}>Retornar a página inicial</Link>
                 </Alert>
