@@ -1,4 +1,7 @@
+<<<<<<< HEAD
 
+=======
+>>>>>>> feature/validando-campos-formulario-edicao
 import React, {useState, useEffect} from 'react';
 import { Redirect} from "react-router-dom";
 import { Container, Row, Card, Form, Button, Image, Spinner, Alert} from 'react-bootstrap';
