@@ -6,7 +6,6 @@ import Login from "./views/Login/index";
 import Error from "./views/Error/index";
 import EditUserForm from "./views/EditUserForm/index";
 import CreateUserForm from "./views/CreateUserForm/index";
-import PrivateHome from "./views/PrivateHome/index";
 
 const Routes = () => {
     return(
