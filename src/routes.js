@@ -1,12 +1,25 @@
 import React from 'react';
-import {BrowserRouter, Switch, Route} from 'react-router-dom';
+import {BrowserRouter, Switch, Route, Redirect} from 'react-router-dom';
 import Header from "./views/Header/index";
 import Home from "./views/Home/index";
 import Login from "./views/Login/index";
 import Error from "./views/Error/index";
 import EditUserForm from "./views/EditUserForm/index";
 import CreateUserForm from "./views/CreateUserForm/index";
-import PrivateHome from "./views/PrivateHome/index";
+import firebase from './firebaseConnection';
+
+const PrivateRoute = ({ component: Component, ...rest }) => {
+    //Observador
+    firebase.auth().onAuthStateChanged((user) => {
+        <Route {...rest} render={props => (
+            user ? (
+                <Component {...props} />
+            ) : (
+                <Redirect to={{pathname: '/', state: {from: props.location}}} />
+            )
+        )} />
+    });
+};
 
 const Routes = () => {
     return(
